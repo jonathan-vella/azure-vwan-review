@@ -1,0 +1,51 @@
+name: Source URL rot
+description: Report a Microsoft Learn or Palo Alto Networks URL that no longer resolves or has moved.
+title: "[URL-ROT] <broken-or-moved-url>"
+labels: ["url-rot", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when a citation in the pack is broken or moved.
+        Pairs with [`prompts/refresh-sources.prompt.md`](../blob/main/prompts/refresh-sources.prompt.md).
+
+  - type: input
+    id: broken_url
+    attributes:
+      label: Broken URL (as currently cited)
+      placeholder: https://learn.microsoft.com/en-us/azure/virtual-wan/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: failure
+    attributes:
+      label: Failure mode
+      options:
+        - "BROKEN — HTTP non-200 / removed page"
+        - "MOVED — page exists but #section-anchor is gone or renamed"
+        - "STALE — page exists but content no longer supports the cited claim"
+        - "REPLACED — Microsoft published a new canonical page"
+    validations:
+      required: true
+
+  - type: input
+    id: control_ids
+    attributes:
+      label: Affected control IDs
+      description: Comma-separated. Run `grep -l '<broken-url>' *.md prompts/*.md` to find them.
+      placeholder: SEC-08, OPS-04
+    validations:
+      required: true
+
+  - type: input
+    id: replacement
+    attributes:
+      label: Proposed replacement URL (if known)
+      placeholder: https://learn.microsoft.com/en-us/azure/...
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else the maintainer should know (regional rollout, GA status, etc.).

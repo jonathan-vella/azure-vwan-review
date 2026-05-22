@@ -28,6 +28,8 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+      - name: Install system deps for MkDocs Material social cards
+        run: sudo apt-get update && sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0
       - name: Install Python deps
         run: pip install -r requirements.txt
       - name: Anchor check
@@ -50,6 +52,8 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+      - name: Install system deps for MkDocs Material social cards
+        run: sudo apt-get update && sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0
       - name: Install Python deps
         run: pip install -r requirements.txt
       - name: Build site

@@ -1,0 +1,39 @@
+# See https://pre-commit.com for usage and config reference.
+# Install once locally:
+#   pip install pre-commit && pre-commit install && pre-commit install --hook-type pre-push
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: \.md$
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: mixed-line-ending
+        args: [--fix=lf]
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.22.1
+    hooks:
+      - id: markdownlint-cli2
+        files: ^([^/]+\.md|prompts/.+\.md)$
+
+  - repo: local
+    hooks:
+      - id: verify-anchors
+        name: Verify anchor resolution (scripts/verify.mjs)
+        entry: node scripts/verify.mjs
+        language: system
+        pass_filenames: false
+        files: ^([^/]+\.md|prompts/.+\.md)$
+
+      - id: mkdocs-strict
+        name: MkDocs strict build
+        entry: mkdocs build --strict --quiet
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+        files: ^([^/]+\.md|prompts/.+\.md|mkdocs\.yml|requirements\.txt|docs/.+)$

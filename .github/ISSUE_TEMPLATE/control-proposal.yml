@@ -1,0 +1,109 @@
+name: Control gap or addition proposal
+description: Propose a new control, modification, or deprecation in the review pack.
+title: "[CONTROL] <prefix>-<id>: <short title>"
+labels: ["control-change", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when you want to add, modify, or deprecate a control row.
+        The fields below match the inputs required by
+        [`prompts/add-or-update-control.prompt.md`](../blob/main/prompts/add-or-update-control.prompt.md).
+
+  - type: dropdown
+    id: operation
+    attributes:
+      label: Operation
+      options:
+        - add
+        - update
+        - deprecate
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      options:
+        - Reliability (REL)
+        - Security (SEC)
+        - Cost Optimization (COST)
+        - Operational Excellence (OPS)
+        - Performance Efficiency (PERF)
+        - CAF topology alignment (CAF)
+        - Palo Alto Cloud NGFW (PA)
+        - Routing scenarios (RT)
+    validations:
+      required: true
+
+  - type: input
+    id: control_id
+    attributes:
+      label: Control ID
+      description: For `add`, propose the next available ID (e.g. `REL-12`). For `update`/`deprecate`, the existing ID.
+      placeholder: REL-12
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Short title
+      placeholder: Hub-to-hub encryption enabled in supported regions
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
+      description: One or two sentences. This becomes the checklist `Why it matters` cell.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Required
+        - Recommended
+        - Optional
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk if gap
+      options:
+        - "H — data exposure, single-region outage, hard-to-reverse"
+        - "M — degraded resilience, cost overrun, partial visibility loss"
+        - "L — hygiene, tagging, docs"
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Microsoft Learn source URL (must include `#section-anchor`)
+      placeholder: https://learn.microsoft.com/en-us/azure/...#section-id
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_check
+    attributes:
+      label: Suggested check (ARG / az / REST / Portal)
+      description: |
+        Paste the full procedure. Mark with `ARG: not available` if the
+        property is not in Resource Graph today.
+      render: bash
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes / common misconfigs
