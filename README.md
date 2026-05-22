@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD041 -->
 
-<div align="center">
+<div align="center" markdown>
 
 # 🛰️ Azure Virtual WAN Review Pack
 
