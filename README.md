@@ -72,40 +72,34 @@ flowchart LR
 
 ## 🧭 How to use this pack
 
-<table>
-<tr>
-<td width="33%" valign="top" markdown>
+<div class="grid cards" markdown>
 
-### 1️⃣ Walk the checklist
+-   **1️⃣ Walk the checklist**
 
-Open [`01-vwan-review-checklist.md`](01-vwan-review-checklist.md) and set
-**Status** (`Pass / Partial / Gap / N/A`) for each control row.
+    ---
 
-Capture evidence under `evidence/{ID}/`.
+    Open [`01-vwan-review-checklist.md`](01-vwan-review-checklist.md) and set
+    **Status** (`Pass / Partial / Gap / N/A`) for each control row.
+    Capture evidence under `evidence/{ID}/`.
 
-</td>
-<td width="33%" valign="top" markdown>
+-   **2️⃣ Follow the back-links**
 
-### 2️⃣ Follow the back-links
+    ---
 
-For a full ARG query / `az` command / Portal procedure, follow the
-`→ A-{ID}` link into
-[`02-vwan-review-addendum.md`](02-vwan-review-addendum.md).
+    For a full ARG query / `az` command / Portal procedure, follow the
+    `→ A-{ID}` link into
+    [`02-vwan-review-addendum.md`](02-vwan-review-addendum.md).
 
-</td>
-<td width="33%" valign="top" markdown>
+-   **3️⃣ Roll up findings**
 
-### 3️⃣ Roll up findings
+    ---
 
-Add each gap to the
-[Findings backlog](01-vwan-review-checklist.md#findings-and-remediation-backlog).
+    Add each gap to the
+    [Findings backlog](01-vwan-review-checklist.md#findings-and-remediation-backlog).
+    Use [`03-vwan-waf-cheatsheet.md`](03-vwan-waf-cheatsheet.md) for
+    stakeholder readouts.
 
-Use [`03-vwan-waf-cheatsheet.md`](03-vwan-waf-cheatsheet.md) for
-stakeholder readouts.
-
-</td>
-</tr>
-</table>
+</div>
 
 ## 📚 Index
 
