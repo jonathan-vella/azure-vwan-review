@@ -7,7 +7,7 @@ One-page compression of the
 reference-only. Use the checklist for review actions; use the addendum
 ([`02-vwan-review-addendum.md`](02-vwan-review-addendum.md)) for full procedures.
 
-Back to [`README.md`](README.md).
+Back to the [project README](https://github.com/jonathan-vella/azure-vwan-review/blob/main/README.md).
 
 ## Reliability
 

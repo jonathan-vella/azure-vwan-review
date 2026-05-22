@@ -1,8 +1,10 @@
 # Virtual WAN Review Checklist
 
 Customer-architect review checklist for Azure Virtual WAN, organized by Well-Architected Framework pillars and Cloud
-Adoption Framework topology guidance. See [`README.md`](README.md) for the status legend, risk/priority rubrics, and
-evidence convention. Per-control deep-dives live in [`02-vwan-review-addendum.md`](02-vwan-review-addendum.md).
+Adoption Framework topology guidance. See the
+[project README](https://github.com/jonathan-vella/azure-vwan-review/blob/main/README.md) for the status legend,
+risk/priority rubrics, and evidence convention. Per-control deep-dives live in
+[`02-vwan-review-addendum.md`](02-vwan-review-addendum.md).
 
 ## Reference diagram (logical view — not a topology diagram)
 
@@ -193,7 +195,7 @@ Narrative summary (top three gaps, recommended sequencing, blockers): `<TBD>`.
 | RT-09 | Non-RFC1918 / overlapping private prefixes                | List explicit prefixes in routing intent Private Traffic prefixes| Hub → Routing Intent → Private traffic → Additional prefixes (non-RFC1918)                      | Easy footgun: forget a prefix and traffic skips Cloud NGFW or AzFW                                      | Where every customer prefix is strictly RFC1918                                                                                                  | [→ A-RT-09](02-vwan-review-addendum.md#a-rt-09)                                                                                                    |
 | RT-10 | Custom route tables / labels (alternative)                | Custom route tables, route table associations + propagations     | Hub → Route Tables → Create custom RTs; set association/propagation per connection              | More granular than routing intent, but **mutually exclusive** with routing intent in same hub           | New designs that benefit from routing intent's simplicity — pick one, not both                                                                   | [→ A-RT-10](02-vwan-review-addendum.md#a-rt-10)                                                                                                    |
 
-## Findings & remediation backlog
+## Findings and remediation backlog
 
 | Finding ID | Control ID | Summary       | Severity | Owner   | Target date | Status      |
 | ---------- | ---------- | ------------- | -------- | ------- | ----------- | ----------- |

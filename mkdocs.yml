@@ -1,0 +1,109 @@
+site_name: Azure Virtual WAN Review Pack
+site_description: Customer-architect review checklist for Azure Virtual WAN, organized by Well-Architected Framework + Cloud Adoption Framework, with Palo Alto Cloud NGFW integration and a routing decision matrix.
+site_url: https://jonathan-vella.github.io/azure-vwan-review/
+repo_url: https://github.com/jonathan-vella/azure-vwan-review
+repo_name: jonathan-vella/azure-vwan-review
+edit_uri: edit/main/
+
+docs_dir: docs
+site_dir: site
+
+# README.md is symlinked into docs/ so cross-file `[...](README.md)` links
+# from the other files resolve under MkDocs. It is functionally identical to
+# index.md; keep it out of the nav to avoid a duplicate Home entry.
+not_in_nav: |
+  README.md
+
+nav:
+  - Home: index.md
+  - Checklist: 01-vwan-review-checklist.md
+  - Addendum: 02-vwan-review-addendum.md
+  - WAF cheat-sheet: 03-vwan-waf-cheatsheet.md
+  - Maintenance:
+      - Overview: prompts/README.md
+      - Blueprint (how it was built): prompts/00-blueprint.prompt.md
+      - Refresh sources: prompts/refresh-sources.prompt.md
+      - Add or update a control: prompts/add-or-update-control.prompt.md
+      - Verify the pack: prompts/verify-pack.prompt.md
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.smartsymbols
+  - pymdownx.tilde
+  - pymdownx.mark
+  - pymdownx.caret
+
+plugins:
+  - search
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jonathan-vella/azure-vwan-review
+
+copyright: >
+  Released under the MIT License. AI-generated content reviewed by a human —
+  see the disclaimer on the home page.

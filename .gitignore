@@ -1,0 +1,16 @@
+# MkDocs build output
+site/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Editors
+.vscode/
+.idea/
+.DS_Store

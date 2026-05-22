@@ -5,7 +5,8 @@ entry covers Microsoft Learn citation, rationale, common misconfigurations, and 
 Resource Graph (ARG), `az` CLI, REST, or Portal). Entries are tagged **"ARG: not available — use `az` CLI / REST /
 Portal"** where ARG does not expose the relevant property today.
 
-Back to [`README.md`](README.md) · [`01-vwan-review-checklist.md`](01-vwan-review-checklist.md) ·
+Back to the [project README](https://github.com/jonathan-vella/azure-vwan-review/blob/main/README.md) ·
+[`01-vwan-review-checklist.md`](01-vwan-review-checklist.md) ·
 [`03-vwan-waf-cheatsheet.md`](03-vwan-waf-cheatsheet.md).
 
 ## Reliability
