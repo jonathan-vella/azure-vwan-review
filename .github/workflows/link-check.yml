@@ -48,7 +48,7 @@ jobs:
 
       - name: Open or update tracking issue on failure
         if: steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@v6
         with:
           title: "Link check failed: external URL rot detected"
           content-filepath: ./lychee/out.md
