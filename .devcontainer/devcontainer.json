@@ -1,0 +1,32 @@
+{
+  "name": "MkDocs Material",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+  "forwardPorts": [
+    8000
+  ],
+  "portsAttributes": {
+    "8000": {
+      "label": "MkDocs Live Preview",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "ms-python.python"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "[markdown]": {
+          "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+          "editor.wordWrap": "on"
+        }
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
