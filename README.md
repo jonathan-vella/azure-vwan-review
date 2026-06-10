@@ -1,13 +1,13 @@
 <!-- markdownlint-disable MD033 MD041 -->
 
-<div align="center">
+<div align="center" markdown>
 
 # 🛰️ Azure Virtual WAN Review Pack
 
 **A customer-architect review checklist for Azure Virtual WAN —
 WAF + CAF + Palo Alto Cloud NGFW + routing decision matrix.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/jonathan-vella/azure-vwan-review/blob/main/LICENSE)
 [![Docs: MkDocs Material](https://img.shields.io/badge/docs-MkDocs%20Material-526CFE?logo=materialformkdocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
 [![CI](https://github.com/jonathan-vella/azure-vwan-review/actions/workflows/docs.yml/badge.svg)](https://github.com/jonathan-vella/azure-vwan-review/actions/workflows/docs.yml)
 [![GitHub Pages](https://img.shields.io/badge/Pages-live-success?logo=github)](https://jonathan-vella.github.io/azure-vwan-review/)
@@ -72,40 +72,34 @@ flowchart LR
 
 ## 🧭 How to use this pack
 
-<table>
-<tr>
-<td width="33%" valign="top">
+<div class="grid cards" markdown>
 
-### 1️⃣ Walk the checklist
+-   **1️⃣ Walk the checklist**
 
-Open [`01-vwan-review-checklist.md`](01-vwan-review-checklist.md) and set
-**Status** (`Pass / Partial / Gap / N/A`) for each control row.
+    ---
 
-Capture evidence under `evidence/{ID}/`.
+    Open [`01-vwan-review-checklist.md`](01-vwan-review-checklist.md) and set
+    **Status** (`Pass / Partial / Gap / N/A`) for each control row.
+    Capture evidence under `evidence/{ID}/`.
 
-</td>
-<td width="33%" valign="top">
+-   **2️⃣ Follow the back-links**
 
-### 2️⃣ Follow the back-links
+    ---
 
-For a full ARG query / `az` command / Portal procedure, follow the
-`→ A-{ID}` link into
-[`02-vwan-review-addendum.md`](02-vwan-review-addendum.md).
+    For a full ARG query / `az` command / Portal procedure, follow the
+    `→ A-{ID}` link into
+    [`02-vwan-review-addendum.md`](02-vwan-review-addendum.md).
 
-</td>
-<td width="33%" valign="top">
+-   **3️⃣ Roll up findings**
 
-### 3️⃣ Roll up findings
+    ---
 
-Add each gap to the
-[Findings backlog](01-vwan-review-checklist.md#findings-and-remediation-backlog).
+    Add each gap to the
+    [Findings backlog](01-vwan-review-checklist.md#findings-and-remediation-backlog).
+    Use [`03-vwan-waf-cheatsheet.md`](03-vwan-waf-cheatsheet.md) for
+    stakeholder readouts.
 
-Use [`03-vwan-waf-cheatsheet.md`](03-vwan-waf-cheatsheet.md) for
-stakeholder readouts.
-
-</td>
-</tr>
-</table>
+</div>
 
 ## 📚 Index
 

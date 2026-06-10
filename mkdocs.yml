@@ -63,6 +63,8 @@ theme:
     repo: fontawesome/brands/github
     edit: material/pencil
     view: material/eye
+    logo: material/router-wireless
+  favicon: assets/favicon.svg
 
 markdown_extensions:
   - admonition
@@ -97,6 +99,14 @@ markdown_extensions:
 
 plugins:
   - search
+  - social:
+      # Toggle off locally with: MKDOCS_SOCIAL=false mkdocs build
+      # Requires `pip install "mkdocs-material[imaging]"` when enabled.
+      enabled: !ENV [MKDOCS_SOCIAL, true]
+      cards: true
+      cards_layout_options:
+        background_color: "#1f6feb"
+        color: "#ffffff"
 
 extra:
   generator: false

@@ -10,6 +10,7 @@
       "headings": true
     },
     "MD024": { "siblings_only": true },
+    "MD030": false,
     "MD033": { "allowed_elements": ["br", "details", "summary", "sub", "sup"] },
     "MD041": false,
     "MD060": false

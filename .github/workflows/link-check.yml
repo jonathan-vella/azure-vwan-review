@@ -1,0 +1,55 @@
+name: link-check
+
+on:
+  schedule:
+    # Weekly: Mondays at 06:00 UTC, paired with the quarterly source refresh prompt.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Restore lychee cache
+        uses: actions/cache@v5
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Run lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Check all .md files at root + prompts/, but only validate external links.
+          # Internal links are covered by scripts/verify.mjs in the docs workflow.
+          args: >-
+            --cache
+            --max-cache-age 1w
+            --no-progress
+            --accept 200..=299,403,429
+            --exclude-mail
+            --exclude-loopback
+            --include "https://learn\\.microsoft\\.com.*"
+            --include "https://docs\\.paloaltonetworks\\.com.*"
+            --include "https://azure\\.microsoft\\.com.*"
+            --include "https://github\\.com.*"
+            './*.md'
+            './prompts/*.md'
+          fail: false
+          format: markdown
+          output: ./lychee/out.md
+
+      - name: Open or update tracking issue on failure
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v6
+        with:
+          title: "Link check failed: external URL rot detected"
+          content-filepath: ./lychee/out.md
+          labels: url-rot, triage
